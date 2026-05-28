@@ -107,6 +107,53 @@ body{
     width:100%;
 }
 
+
+.primary-btn{
+    position:relative;
+    overflow:hidden;
+
+    transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.4s ease;
+}
+
+.primary-btn::before{
+    content:'';
+    position:absolute;
+    top:-120%;
+    left:-40%;
+    width:50px;
+    height:250%;
+
+    background:rgba(255,255,255,0.45);
+
+    transform:rotate(25deg);
+
+    transition:0.7s;
+}
+
+.primary-btn:hover::before{
+    left:140%;
+}
+
+.primary-btn:hover{
+    transform:translateY(-6px) scale(1.05);
+
+    background:#ffd700;
+    color:black;
+
+    box-shadow:
+    0 0 18px rgba(255,215,0,0.8),
+    0 0 40px rgba(255,215,0,0.5),
+    0 0 70px rgba(255,215,0,0.3);
+}
+
+.primary-btn{
+    cursor:pointer;
+}
+
+
 /* HERO */
 
 .hero{
@@ -450,7 +497,7 @@ body{
 /* IMAGE */
 
 .hero-right{
-    flex:15;
+   flex:1;
     display:flex;
     justify-content:center;
 }
@@ -701,16 +748,66 @@ footer{
 
 /* RESPONSIVE */
 
+/* =========================
+   FULL RESPONSIVE FIX
+========================= */
+
+img{
+    max-width:100%;
+    height:auto;
+}
+
+.hero-left,
+.hero-right{
+    flex:1;
+}
+
+/* FIXED BUTTON WIDTH REMOVE */
+
+.primary-btn{
+    width:auto;
+    min-width:220px;
+    max-width:100%;
+}
+
+/* FOOTER FIX */
+
+footer{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+}
+
+.nav-icons{
+    margin-left:0;
+    margin-top:10px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.itemm{
+    margin-right:0;
+}
+
+/* LARGE TABLETS */
+
 @media(max-width:1100px){
 
     .hero{
-        flex-direction:column;
+        flex-direction:column-reverse;
         text-align:center;
-        padding-top:120px;
+        padding:120px 5% 60px;
     }
 
     .hero-left h1{
         font-size:65px;
+    }
+
+    .hero-left p{
+        margin:auto;
+        margin-bottom:35px;
     }
 
     .hero-buttons{
@@ -720,35 +817,184 @@ footer{
     .stats{
         justify-content:center;
     }
+
+    .navbar{
+        padding:20px 5%;
+    }
+
+    .image-circle{
+        width:350px;
+        height:350px;
+    }
 }
+
+/* TABLETS */
 
 @media(max-width:768px){
 
     .navbar{
         flex-direction:column;
         gap:20px;
+        padding:20px;
     }
 
     .nav-links{
-        gap:20px;
+        gap:18px;
         flex-wrap:wrap;
         justify-content:center;
     }
 
+    .hero{
+        padding:110px 20px 50px;
+        gap:40px;
+    }
+
     .hero-left h1{
-        font-size:50px;
+        font-size:48px;
+        line-height:1.2;
     }
 
     .hero-left h2{
-        font-size:26px;
+        font-size:24px;
+    }
+
+    .hero-left p{
+        font-size:16px;
+        line-height:1.7;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .btn{
+        width:100%;
+        max-width:320px;
+    }
+
+    .primary-btn{
+        width:100%;
+        height:auto;
+        padding:16px 20px;
     }
 
     .image-circle{
-        width:320px;
-        height:320px;
+        width:280px;
+        height:280px;
     }
 
     .section-title{
-        font-size:35px;
+        font-size:34px;
+        text-align:center;
+    }
+
+    .glass-card{
+        padding:28px;
+    }
+
+    .timeline-card{
+        padding:28px;
+    }
+
+    .contact-item{
+        padding:24px;
+    }
+
+    .stat-card{
+        width:100%;
+    }
+
+    .cv-btn{
+        width:100%;
+        justify-content:center;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+
+    .logo{
+        font-size:24px;
+    }
+
+    .nav-links{
+        gap:14px;
+    }
+
+    .nav-links a{
+        font-size:14px;
+    }
+
+    .hero{
+        min-height:auto;
+        padding-top:120px;
+    }
+
+    .small-text{
+        font-size:16px;
+    }
+
+    .hero-left h1{
+        font-size:38px;
+    }
+
+    .hero-left h2{
+        font-size:20px;
+    }
+
+    .hero-left p{
+        font-size:15px;
+    }
+
+    .image-circle{
+        width:230px;
+        height:230px;
+        padding:10px;
+    }
+
+    .section-title{
+        font-size:28px;
+    }
+
+    .glass-section{
+        padding:60px 20px;
+    }
+
+    .glass-card{
+        padding:22px;
+    }
+
+    .timeline-card h3{
+        font-size:22px;
+    }
+
+    .timeline-card{
+        padding:22px;
+    }
+
+    .skill-box{
+        padding:22px;
+        font-size:16px;
+    }
+
+    .contact-item{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    footer{
+        padding:25px 15px;
+    }
+
+    .itemm{
+        font-size:14px;
+        line-height:1.7;
+    }
+
+    .nav-icons{
+        gap:25px;
+        font-size:22px;
     }
 }
